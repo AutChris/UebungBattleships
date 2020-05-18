@@ -24,12 +24,15 @@ int main() {
 
 
 	do {
-		try {
 		 cout << "Gebe die X Koordinate ein um zu schiessen: " << endl;
 		 cin >> x;
 		 cout << "Gebe die Y Koordinate ein um zu schiessen: " << endl;
 		 cin >> y;
 		
+		 try {
+			 if (sizeof(board[x][y]) > sizeof(board[1][1]) || sizeof(board[x][y]) > sizeof(board[2][1])) {
+				 throw 1;
+			 }
 
 			if (board[x][y].geshooted == 1) {
 
@@ -54,17 +57,14 @@ int main() {
 			{
 				cout << "Diese Stelle wurde schon beschossen!" << endl;
 			}
-		}
-		
+		 }
+		 
+		 catch(int ex) {
+		 cerr << "Kordinaten außerhalb des Bereiches" << endl; }
 
-
-		catch (int ex) { //Datentyp der bei Throw geworfen wurde
-			cerr << "Gebe gueltige Kordinaten ein!" << endl;
-		}
 	}
+
 	while (healthyships != 0);
 		
-	
-
 	return 0;
 }
