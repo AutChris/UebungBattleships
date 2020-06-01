@@ -8,8 +8,6 @@ public:
 	Ship *ship;
 	bool hit;
 	bool sunk;
-	int geshooted;
-	
-
+	int geshooted = 1;
 };
 
